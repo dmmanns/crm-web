@@ -7,24 +7,19 @@ class Contact
   @@id = 1
 
 #Used initialize method
-def initialize(first_name, last_name, options = {})
+def initialize(first_name, last_name, email, notes)
   @id = @@id
   @first_name = first_name
   @last_name = last_name
-  if options[:email]
-    @email = options[:email] 
-  end
-
-  if options[:notes]
-    @notes = options[:notes]
-  end
+  @email = email
+  @notes = notes
   
   @@id += 1
 end 
 
 #create a new contact
-def self.create(first_name, last_name, options = {})
-	@@contacts << Contact.new(first_name, last_name, options)
+def self.create(first_name, last_name, email, notes)
+	@@contacts << Contact.new(first_name, last_name, email, notes)
 end
 
 #find a contact for changing/modifcations  
