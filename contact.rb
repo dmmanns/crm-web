@@ -4,7 +4,7 @@ class Contact
   attr_accessor :first_name, :last_name, :email, :notes
 
   @@contacts = [] #class variable  
-  @@id = 1000
+  @@id = 1
 
 #Used initialize method
   def initialize(first_name, last_name, email, notes)
