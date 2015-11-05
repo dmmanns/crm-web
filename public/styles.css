@@ -24,7 +24,8 @@ a{
 	color: white;
 }
 
-img {
-	 position: center;
-
+img.displayed {
+	 display: block;
+	 margin-left: auto;
+	 margin-right: auto;
 }

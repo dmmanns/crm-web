@@ -4,7 +4,7 @@ class Contact
   attr_accessor :first_name, :last_name, :email, :notes
 
   @@contacts = [] #class variable  
-  @@id = 1
+  @@id = 1000
 
 #Used initialize method
 def initialize(first_name, last_name, email, notes)
@@ -23,12 +23,8 @@ def self.create(first_name, last_name, email, notes)
 end
 
 #find a contact for changing/modifcations  
-def self.find(id)
-    @@contacts.each do |contact|
-      if contact.id == id
-        return contact 
-    end
-  end  
+def self.find(contact_id)
+    @@contacts.find { |contact| contact.id == contact_id }
 end
 
 # # This is a more advanced way of updating 
