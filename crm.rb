@@ -1,7 +1,27 @@
-require_relative 'contact'
 require 'sinatra'
 require 'data_mapper'
+
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
+
+class Contact
+  include DataMapper::Resource
+  # attr_accessor :id, :first_name, :last_name, :email, :notes
+  property :id, Serial
+  property :first_name, String
+  property :last_name, String
+  property :email, String
+  property :notes, String
+
+# def initialize(first_name, last_name, email, notes)
+#     @first_name = first_name
+#     @last_name = last_name
+#     @email = email
+#     @notes = notes
+#   end
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 get '/' do 
 	@crm_app_name = "My CRM"
@@ -62,3 +82,5 @@ delete "/contacts/:id" do
     raise Sinatra::NotFound
   end
 end
+
+
